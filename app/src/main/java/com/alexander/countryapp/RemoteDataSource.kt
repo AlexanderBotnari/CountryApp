@@ -8,11 +8,11 @@ import retrofit2.http.Path
 interface RestCountriesApi{
 
     @GET("name/{name}")
-    fun getCountryByName(@Path(value = "name") cityName:String):List<Country>
+   suspend fun getCountryByName(@Path(value = "name") cityName:String):List<Country>
 }
 
 var retrofit = Retrofit.Builder()
-    .baseUrl("https://restcountries.com/v3.1/")
+    .baseUrl("https://restcountries.com/v2/")
     .addConverterFactory(GsonConverterFactory.create())
     .build()
 
